@@ -40,12 +40,4 @@ public class Add {
     public List<Integer> getUnrepeatedFromEvenIndex(List<Integer> arrayList) {
         throw new NotImplementedException();
     }
-
-    public List<Integer> sortByEvenAndOdd(List<Integer> arrayList) {
-        throw new NotImplementedException();
-    }
-
-    public List<Integer> getProcessedList(List<Integer> arrayList) {
-        throw new NotImplementedException();
-    }
 }
