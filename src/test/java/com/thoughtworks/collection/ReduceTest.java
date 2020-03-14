@@ -43,6 +43,23 @@ public class ReduceTest {
     }
 
     @Test
+    public void should_get_element_in_middle_position_with_order_elements() {
+        // 获取数组中位数
+        Integer[] array = new Integer[]{1, 1, 1, 2, 3};
+        List<Integer> arrayList = Arrays.asList(array);
+        Reduce reduce = new Reduce(arrayList);
+
+        assertThat(reduce.getOrderedMedian()).isEqualTo(1);
+
+
+        Integer[] evenArray = new Integer[]{1, 1, 2, 3};
+        List<Integer> EvenArrayList = Arrays.asList(evenArray);
+        Reduce evenReduce = new Reduce(EvenArrayList);
+
+        assertThat(evenReduce.getOrderedMedian()).isEqualTo(1.5);
+    }
+
+    @Test
     public void should_return_first_even_element() {
         //获取数组中第一个偶数
         Integer[] array = new Integer[]{1, 11, 27, 20, 4, 9, 15};
@@ -50,5 +67,49 @@ public class ReduceTest {
 
         Reduce reduce = new Reduce(arrayList);
         assertThat(reduce.getFirstEven()).isEqualTo(20);
+    }
+
+    @Test
+    public void should_return_index_of_first_even_element() {
+        //获取数组中第一个偶数的下标
+        Integer[] array = new Integer[]{1, 11, 27, 20, 4, 9, 15, 4, 1, 11};
+        List<Integer> arrayList = Arrays.asList(array);
+
+        Reduce reduce = new Reduce(arrayList);
+        assertThat(reduce.getIndexOfFirstEven()).isEqualTo(3);
+    }
+
+    @Test
+    public void should_return_last_even_element() {
+        //获取数组中最后一个奇数
+        Integer[] array = new Integer[]{1, 11, 27, 20, 4, 9, 15};
+        List<Integer> arrayList = Arrays.asList(array);
+
+        Reduce reduce = new Reduce(arrayList);
+        assertThat(reduce.getLastOdd()).isEqualTo(15);
+    }
+
+    @Test
+    public void should_return_index_of_last_even_element() {
+        //获取数组中最后一个奇数的下标
+        Integer[] array = new Integer[]{1, 4, 27, 20, 4, 9, 15, 4, 1, 11};
+        List<Integer> arrayList = Arrays.asList(array);
+
+        Reduce reduce = new Reduce(arrayList);
+        assertThat(reduce.getIndexOfLastOdd()).isEqualTo(9);
+    }
+
+    @Test
+    public void can_judge_whether_is_equal() {
+        //判断两个数组是否相等
+        Integer[] array = new Integer[]{1, 4, 27, 20, 4, 9, 15, 4, 1, 11};
+        List<Integer> arrayList = Arrays.asList(array);
+
+        Integer[] differentArray = new Integer[]{1, 4, 27, 20, 4, 9, 15, 4, 1};
+        List<Integer> differentArrayList = Arrays.asList(differentArray);
+
+        Reduce reduce = new Reduce(arrayList);
+        assertThat(reduce.isEqual(arrayList)).isEqualTo(true);
+        assertThat(reduce.isEqual(differentArrayList)).isEqualTo(false);
     }
 }
