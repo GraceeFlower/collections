@@ -7,7 +7,7 @@ import java.util.List;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-public class FlatenTest {
+public class FlattenTest {
 
     @Test
     public void can_transform_two_dimensional_array_to_one() {
@@ -17,9 +17,9 @@ public class FlatenTest {
         Integer[] result = new Integer[]{1, 2, 3, 4};
         List<Integer> resultList = Arrays.asList(result);
 
-        Flaten flaten = new Flaten(array);
+        Flatten flatten = new Flatten(array);
 
-        assertThat(flaten.transformToOneDimesional()).isEqualTo(resultList);
+        assertThat(flatten.transformToOneDimensional()).isEqualTo(resultList);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class FlatenTest {
         Integer[] result = {1, 2, 3, 5, 4};
         List<Integer> resultList = Arrays.asList(result);
 
-        Flaten flaten = new Flaten(array);
-        assertThat(flaten.transformToUnrepeatedOneDimesional()).isEqualTo(resultList);
+        Flatten flatten = new Flatten(array);
+        assertThat(flatten.transformToUnrepeatedOneDimensional()).isEqualTo(resultList);
     }
 }
