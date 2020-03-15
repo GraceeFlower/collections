@@ -1,7 +1,5 @@
 package com.thoughtworks.collection;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -31,12 +29,15 @@ public class MyMap {
     }
 
     private String getLetter(int num) {
-        if (num <= 26) {
-            return letters[num - 1];
-        } else if (num % 26 == 0) {
-            return letters[(num - 1) / 26 - 1] + getLetter(26);
-        }
-        return letters[num / 26 - 1] + getLetter(num % 26);
+        int excess = (int) Math.floor((num - 1) / 26.0);
+        int letter = num - excess * 26;
+        return (0 == excess ? letters[num - 1] : letters[excess - 1] + letters[letter - 1]);
+//        if (num <= 26) {
+//            return letters[num - 1];
+//        } else if (num % 26 == 0) {
+//            return letters[(num - 1) / 26 - 1] + getLetter(26);
+//        }
+//        return letters[num / 26 - 1] + getLetter(num % 26);
     }
 
     public List<Integer> sortFromBig() {
